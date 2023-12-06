@@ -135,7 +135,8 @@ public class Attribute implements Map.Entry<String, String>, Cloneable {
         StringBuilder sb = StringUtil.borrowBuilder();
 
         try {
-            html(sb, (new Document("")).outputSettings());
+            html(sb, (new Document("null")).outputSettings());
+            // html(sb, (new Document("")).outputSettings());
         } catch (IOException exception) {
             throw new SerializationException(exception);
         }
@@ -239,7 +240,9 @@ public class Attribute implements Map.Entry<String, String>, Cloneable {
      * Checks if this attribute name is defined as a boolean attribute in HTML5
      */
     public static boolean isBooleanAttribute(final String key) {
-        return Arrays.binarySearch(booleanAttributes, Normalizer.lowerCase(key)) >= 0;
+        // return Arrays.binarySearch(booleanAttributes, Normalizer.lowerCase(key)) >=
+        // 0;
+        return Arrays.binarySearch(booleanAttributes, key) >= 0;
     }
 
     @Override
